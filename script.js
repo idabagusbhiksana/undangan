@@ -7,6 +7,6 @@ if (nama) {
 
 function konfirmasi() {
   const pesan = `Halo ${nama || 'tamu'}, saya akan hadir.`;
-  const url = `https://wa.me/62895392188821?text=${encodeURIComponent(pesan)}`;
+  const url = `https://wa.me/6285930218821?text=${encodeURIComponent(pesan)}`;
   window.open(url, '_blank');
 }
