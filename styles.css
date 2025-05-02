@@ -1,13 +1,23 @@
+/* Pastikan box-sizing diterapkan pada semua elemen */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Style untuk body */
 body {
   font-family: Arial, sans-serif;
   background-color: #fef9f4;
   padding: 30px;
   text-align: center;
+  margin: 0;
 }
 
+/* Container utama */
 .container {
   background-image: url('https://i.ibb.co.com/1JKHBXB3/bingkai.png');
-  background-size: 100% 100%;
+  background-size: cover; /* Mengatur agar gambar background menyesuaikan ukuran layar */
   background-repeat: no-repeat;
   background-position: center;
   padding: 120px 30px 100px;
@@ -20,29 +30,35 @@ body {
   box-sizing: border-box;
 }
 
+/* Styling untuk header */
 h1:first-of-type {
   font-family: 'Dancing Script', cursive;
-  font-size: 48px; /* Menyesuaikan ukuran font sesuai keinginan */
-  margin-top: -20px; /* Jika Anda ingin menaikkan teks sedikit lebih tinggi */
+  font-size: 48px;
+  margin-top: -20px;
 }
 
+/* Styling untuk teks dengan kelas "sareng-rabi" */
 .sareng-rabi {
   font-family: 'Dancing Script', cursive;
-  font-size: 20px; /* Ukuran font bisa disesuaikan */
+  font-size: 20px;
 }
 
+/* Styling untuk h2 */
 h2 {
   margin: 15px 0;
 }
 
+/* Styling untuk h3 */
 h3 {
   margin: 10px 0;
 }
 
+/* Lokasi acara */
 .lokasi-acara {
   margin-top: 40px;
 }
 
+/* Styling tombol */
 button {
   margin-top: 25px;
   padding: 12px 24px;
@@ -52,43 +68,66 @@ button {
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  transition: background-color 0.3s ease; /* Menambahkan transisi untuk efek hover */
 }
 
 button:hover {
   background-color: #218838;
 }
 
-/* Responsivitas untuk layar kecil (misalnya ponsel) */
-@media (max-width: 600px) {
+/* Menambahkan responsivitas untuk perangkat dengan layar lebih kecil */
+@media (max-width: 768px) {
   body {
-    padding: 10px;
+    padding: 10px; /* Mengurangi padding untuk layar kecil */
   }
 
   .container {
-    padding: 60px 20px 60px; /* Mengurangi padding di perangkat kecil */
-    min-height: auto;
+    padding: 60px 20px 60px;
+    min-height: auto; /* Menghindari tinggi yang terlalu besar */
   }
 
   h1:first-of-type {
-    font-size: 36px; /* Menyesuaikan ukuran font pada ponsel */
+    font-size: 36px; /* Ukuran font lebih kecil untuk ponsel */
   }
 
   .sareng-rabi {
-    font-size: 18px; /* Ukuran font bisa disesuaikan untuk ponsel */
+    font-size: 18px; /* Ukuran font untuk ponsel */
   }
 
   h2 {
-    font-size: 18px; /* Mengurangi ukuran font h2 untuk ponsel */
+    font-size: 18px; /* Mengurangi ukuran font h2 pada layar kecil */
   }
 
   button {
-    width: 100%; /* Membuat tombol penuh pada ponsel */
-    padding: 14px 0; /* Membuat padding lebih besar agar mudah ditekan */
+    width: 100%; /* Tombol memenuhi lebar pada ponsel */
+    padding: 14px 0; /* Padding lebih besar untuk tombol */
   }
 
   iframe {
-    width: 100%; /* Membuat iframe peta menyesuaikan dengan lebar layar */
-    height: 200px; /* Menyesuaikan tinggi iframe di ponsel */
+    width: 100%; /* Membuat map iframe menyesuaikan lebar layar */
+    height: 200px; /* Menyesuaikan tinggi map untuk ponsel */
   }
 }
 
+/* Media query untuk perangkat yang lebih kecil seperti ponsel */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 28px; /* Mengurangi ukuran font untuk ponsel lebih kecil */
+  }
+
+  h2 {
+    font-size: 16px; /* Ukuran font h2 untuk ponsel lebih kecil */
+  }
+
+  .sareng-rabi {
+    font-size: 16px; /* Menyesuaikan ukuran font lebih kecil */
+  }
+
+  button {
+    padding: 12px 0; /* Menyesuaikan padding tombol pada layar kecil */
+  }
+
+  iframe {
+    height: 180px; /* Menyesuaikan tinggi iframe */
+  }
+}
