@@ -1,12 +1,23 @@
-const urlParams = new URLSearchParams(window.location.search);
-const nama = urlParams.get('nama');
-
-if (nama) {
-  document.getElementById("salam").innerText = `Yth. ${nama},`;
+.music-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.8);
+  border: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+  display: none; /* Hidden by default */
+  z-index: 1000;
 }
 
-function konfirmasi() {
-  const pesan = `Halo ${nama || 'tamu'}, saya akan hadir.`;
-  const url = `https://wa.me/6285930218821?text=${encodeURIComponent(pesan)}`;
-  window.open(url, '_blank');
+.music-control.playing {
+  background: rgba(220, 20, 60, 0.8);
+  color: white;
+}
+
+.music-icon {
+  font-size: 18px;
 }
