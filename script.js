@@ -7,44 +7,60 @@ if (nama) {
   document.getElementById("salam").innerText = `Yth. ${nama},`;
 }
 
-// WhatsApp confirmation function
+// Konfirmasi WhatsApp (tetap sama)
 function konfirmasi() {
-  const pesan = `Halo ${nama || 'tamu undangan'}, saya akan hadir pada acara diksa pariksa.`;
+  const nama = new URLSearchParams(window.location.search).get('nama') || 'tamu undangan';
+  const pesan = `Halo ${nama}, saya akan hadir pada acara diksa pariksa.`;
   const url = `https://wa.me/6285930218821?text=${encodeURIComponent(pesan)}`;
   window.open(url, '_blank');
 }
 
-// Audio handling for all devices
+// Audio Handling (perbaikan utama)
 document.addEventListener('DOMContentLoaded', function() {
   const audio = document.getElementById('weddingAudio');
   const musicToggle = document.getElementById('musicToggle');
-  let audioPlayAttempted = false;
-
-  // Try autoplay (will work on some devices)
-  const tryAutoplay = () => {
+  
+  // Fungsi untuk memulai audio
+  const startAudio = () => {
+    audio.muted = false;
     audio.play()
       .then(() => {
         musicToggle.classList.add('playing');
+        musicToggle.innerHTML = '<span class="music-icon">🔊</span>';
       })
       .catch(error => {
-        console.log('Autoplay blocked:', error);
+        console.log('Autoplay diblokir:', error);
         musicToggle.style.display = 'block';
       });
   };
 
-  // First attempt (may work on desktop)
-  tryAutoplay();
-  
-  // Music toggle functionality
-  musicToggle.addEventListener('click', function() {
+  // Strategy 1: Coba autoplay langsung (untuk desktop)
+  startAudio();
+
+  // Strategy 2: Aktifkan saat interaksi pertama (untuk Safari)
+  const enableAudio = () => {
     if (audio.paused) {
-      audio.play();
-      this.classList.add('playing');
+      startAudio();
+    }
+    document.body.removeEventListener('click', enableAudio);
+    document.body.removeEventListener('touchend', enableAudio);
+  };
+
+  document.body.addEventListener('click', enableAudio, { once: true });
+  document.body.addEventListener('touchend', enableAudio, { once: true });
+
+  // Kontrol manual
+  musicToggle.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (audio.paused) {
+      startAudio();
     } else {
       audio.pause();
       this.classList.remove('playing');
+      this.innerHTML = '<span class="music-icon">🔇</span>';
     }
   });
+});
 
   // Second attempt on first user interaction (for Safari)
   document.body.addEventListener('click', function firstInteraction() {
