@@ -1,34 +1,52 @@
-<div class="container">
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+  <!-- Gaya CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Audio -->
   <audio autoplay loop hidden>
     <source src="https://drive.google.com/uc?export=download&id=1IXW6Z6VH13tUDyyeCW9405C34vsMC0lI" type="audio/mpeg">
   </audio>
-  
-<head>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 </head>
 
-  <h1>Uleman</h1>
-  <h2>UPACARA RSI YADNYA</h2>
-  <h2>DIKSA PARIKSA / PADIKSAAN</h2>
-  <p id="salam"></p>
-  <h1>Ida Bagus Ketut Putra</h1>
-  <p class="sareng-rabi">SARENG RABI</p>
-  <h1>Ida Ayu Agung Mas</h1>
-  <h2>------------------------</h2>
-  <p><strong>Tanggal:</strong> 12 Mei 2025</p>
-  <p><strong>Tempat:</strong> Griya Gede Pantiyasa, Banjar Bona Kelod, </p>
-  <p>Kecamatan Blahbatuh, Kabupaten Gianyar</p>
+<body>
+  <div class="container">
+    <h1>Uleman</h1>
+    <h2>UPACARA RSI YADNYA</h2>
+    <h2>DIKSA PARIKSA / PADIKSAAN</h2>
+    <p id="salam"></p>
+    <h1>Ida Bagus Ketut Putra</h1>
+    <p class="sareng-rabi">SARENG RABI</p>
+    <h1>Ida Ayu Agung Mas</h1>
+    <h2>------------------------</h2>
+    <p><strong>Tanggal:</strong> 12 Mei 2025</p>
+    <p><strong>Tempat:</strong> Griya Gede Pantiyasa, Banjar Bona Kelod, </p>
+    <p>Kecamatan Blahbatuh, Kabupaten Gianyar</p>
 
-  <h3 class="lokasi-acara">Lokasi Acara</h3>
+    <h3 class="lokasi-acara">Lokasi Acara</h3>
 
-  <div style="display: flex; justify-content: center; margin-top: 10px;">
-    <iframe
-      src="https://www.google.com/maps?q=https://maps.app.goo.gl/7b9o1E9iqfSD3XHv5&output=embed"
-      width="300" height="180"
-      style="border:0; border-radius: 10px;" 
-      allowfullscreen="" loading="lazy">
-    </iframe>
+    <div style="display: flex; justify-content: center; margin-top: 10px;">
+      <iframe
+        src="https://www.google.com/maps?q=https://maps.app.goo.gl/7b9o1E9iqfSD3XHv5&output=embed"
+        width="300" height="180"
+        style="border:0; border-radius: 10px;" 
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+
+    <button onclick="konfirmasi()">Konfirmasi via WhatsApp</button>
   </div>
 
-  <button onclick="konfirmasi()">Konfirmasi via WhatsApp</button>
-</div>
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
+
