@@ -16,8 +16,8 @@ body {
 
 /* Container utama */
 .container {
-  background-image: url('https://i.ibb.co.com/1JKHBXB3/bingkai.png');
-  background-size: cover; /* Mengatur agar gambar background menyesuaikan ukuran layar */
+  background-image: url('https://i.ibb.co/com/1JKHBXB3/bingkai.png');
+  background-size: contain; /* Gambar bingkai menyesuaikan ukuran kontainer tanpa terdistorsi */
   background-repeat: no-repeat;
   background-position: center;
   padding: 120px 30px 100px;
