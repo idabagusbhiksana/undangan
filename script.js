@@ -1,23 +1,66 @@
-.music-control {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.8);
-  border: none;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  cursor: pointer;
-  display: none; /* Hidden by default */
-  z-index: 1000;
+// Handle URL parameters
+const urlParams = new URLSearchParams(window.location.search);
+const nama = urlParams.get('nama');
+
+// Set guest name if available
+if (nama) {
+  document.getElementById("salam").innerText = `Yth. ${nama},`;
 }
 
-.music-control.playing {
-  background: rgba(220, 20, 60, 0.8);
-  color: white;
+// WhatsApp confirmation function
+function konfirmasi() {
+  const pesan = `Halo ${nama || 'tamu undangan'}, saya akan hadir pada acara diksa pariksa.`;
+  const url = `https://wa.me/6285930218821?text=${encodeURIComponent(pesan)}`;
+  window.open(url, '_blank');
 }
 
-.music-icon {
-  font-size: 18px;
-}
+// Audio handling for all devices
+document.addEventListener('DOMContentLoaded', function() {
+  const audio = document.getElementById('weddingAudio');
+  const musicToggle = document.getElementById('musicToggle');
+  let audioPlayAttempted = false;
+
+  // Try autoplay (will work on some devices)
+  const tryAutoplay = () => {
+    audio.play()
+      .then(() => {
+        musicToggle.classList.add('playing');
+      })
+      .catch(error => {
+        console.log('Autoplay blocked:', error);
+        musicToggle.style.display = 'block';
+      });
+  };
+
+  // First attempt (may work on desktop)
+  tryAutoplay();
+  
+  // Music toggle functionality
+  musicToggle.addEventListener('click', function() {
+    if (audio.paused) {
+      audio.play();
+      this.classList.add('playing');
+    } else {
+      audio.pause();
+      this.classList.remove('playing');
+    }
+  });
+
+  // Second attempt on first user interaction (for Safari)
+  document.body.addEventListener('click', function firstInteraction() {
+    if (!audioPlayAttempted) {
+      tryAutoplay();
+      audioPlayAttempted = true;
+    }
+    document.body.removeEventListener('click', firstInteraction);
+  });
+
+  // Third attempt on touch (for mobile)
+  document.body.addEventListener('touchend', function firstTouch() {
+    if (!audioPlayAttempted) {
+      tryAutoplay();
+      audioPlayAttempted = true;
+    }
+    document.body.removeEventListener('touchend', firstTouch);
+  }, { once: true });
+});
