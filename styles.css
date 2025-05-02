@@ -1,0 +1,59 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fef9f4;
+  padding: 30px;
+  text-align: center;
+}
+
+.container {
+  background-image: url('https://i.ibb.co.com/1JKHBXB3/bingkai.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 120px 30px 100px;
+  border-radius: 20px;
+  max-width: 600px;
+  margin: auto;
+  min-height: 850px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.85);
+  box-sizing: border-box;
+}
+
+h1:first-of-type {
+  font-family: 'Dancing Script', cursive;
+  font-size: 48px;  /* Menyesuaikan ukuran font sesuai keinginan */
+  margin-top: -20px; /* Jika Anda ingin menaikkan teks sedikit lebih tinggi */
+}
+.sareng-rabi {
+  font-family: 'Dancing Script', cursive;
+  font-size: 20px; /* Ukuran font bisa disesuaikan */
+  
+}
+
+h2 {
+  margin: 15px 0;
+}
+
+h3 {
+  margin: 10px 0;
+}
+
+.lokasi-acara {
+  margin-top: 40px;
+}
+
+button {
+  margin-top: 25px;
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
