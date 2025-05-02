@@ -22,13 +22,13 @@ body {
 
 h1:first-of-type {
   font-family: 'Dancing Script', cursive;
-  font-size: 48px;  /* Menyesuaikan ukuran font sesuai keinginan */
+  font-size: 48px; /* Menyesuaikan ukuran font sesuai keinginan */
   margin-top: -20px; /* Jika Anda ingin menaikkan teks sedikit lebih tinggi */
 }
+
 .sareng-rabi {
   font-family: 'Dancing Script', cursive;
   font-size: 20px; /* Ukuran font bisa disesuaikan */
-  
 }
 
 h2 {
@@ -57,3 +57,38 @@ button {
 button:hover {
   background-color: #218838;
 }
+
+/* Responsivitas untuk layar kecil (misalnya ponsel) */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 60px 20px 60px; /* Mengurangi padding di perangkat kecil */
+    min-height: auto;
+  }
+
+  h1:first-of-type {
+    font-size: 36px; /* Menyesuaikan ukuran font pada ponsel */
+  }
+
+  .sareng-rabi {
+    font-size: 18px; /* Ukuran font bisa disesuaikan untuk ponsel */
+  }
+
+  h2 {
+    font-size: 18px; /* Mengurangi ukuran font h2 untuk ponsel */
+  }
+
+  button {
+    width: 100%; /* Membuat tombol penuh pada ponsel */
+    padding: 14px 0; /* Membuat padding lebih besar agar mudah ditekan */
+  }
+
+  iframe {
+    width: 100%; /* Membuat iframe peta menyesuaikan dengan lebar layar */
+    height: 200px; /* Menyesuaikan tinggi iframe di ponsel */
+  }
+}
+
