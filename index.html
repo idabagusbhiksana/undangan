@@ -3,51 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undangan</title>
+  <title>Undangan Uleman UPACARA RSI YADNYA</title>
 
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Gaya CSS -->
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Audio -->
-  <audio autoplay loop playsinline hidden>
-  <source src="docs/kisikisi.mp3" type="audio/mpeg">
-</audio>
+  <!-- Audio dengan pendekatan yang kompatibel -->
+  <audio id="weddingAudio" loop preload="auto">
+    <source src="docs/kisikisi.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung audio.
+  </audio>
 
 </head>
 
 <body>
+  <!-- Bingkai undangan -->
+  <div class="frame-overlay"></div>
+
   <div class="container">
-    <h1>Uleman</h1>
-    <h2>UPACARA RSI YADNYA</h2>
-    <h2>DIKSA PARIKSA / PADIKSAAN</h2>
-    <p id="salam"></p>
-    <h1>Ida Bagus Ketut Putra</h1>
-    <p class="sareng-rabi">SARENG RABI</p>
-    <h1>Ida Ayu Agung Mas</h1>
-    <h2>------------------------</h2>
-    <p><strong>Tanggal:</strong> 12 Mei 2025</p>
-    <p><strong>Tempat:</strong> Griya Gede Pantiyasa, Banjar Bona Kelod, </p>
-    <p>Kecamatan Blahbatuh, Kabupaten Gianyar</p>
+    <div class="invitation-content">
+      <h1 class="title">Uleman</h1>
+      <h2 class="subtitle">UPACARA RSI YADNYA</h2>
+      <h2 class="subtitle">DIKSA PARIKSA / PADIKSAAN</h2>
+      <p id="salam" class="greeting"></p>
+      
+      <div class="couple-names">
+        <h1 class="groom">Ida Bagus Ketut Putra</h1>
+        <p class="sareng-rabi">SARENG RABI</p>
+        <h1 class="bride">Ida Ayu Agung Mas</h1>
+      </div>
+      
+      <div class="divider">⋆⋆⋆⋆⋆</div>
+      
+      <div class="event-details">
+        <p><strong>Tanggal:</strong> 12 Mei 2025</p>
+        <p><strong>Tempat:</strong> Griya Gede Pantiyasa, Banjar Bona Kelod,</p>
+        <p>Kecamatan Blahbatuh, Kabupaten Gianyar</p>
+      </div>
 
-    <h3 class="lokasi-acara">Lokasi Acara</h3>
+      <h3 class="lokasi-acara">Lokasi Acara</h3>
 
-    <div style="display: flex; justify-content: center; margin-top: 10px;">
-      <iframe
-  src="https://www.google.com/maps?q=Griya+Gede+Pantiyasa,+Banjar+Bona+Kelod,+Kecamatan+Blahbatuh,+Kabupaten+Gianyar&output=embed"
-  width="300" height="180"
-  style="border:0; border-radius: 10px;" 
-  allowfullscreen="" loading="lazy">
-</iframe>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps?q=Griya+Gede+Pantiyasa,+Banjar+Bona+Kelod,+Kecamatan+Blahbatuh,+Kabupaten+Gianyar&output=embed"
+          width="100%" 
+          height="200"
+          style="border:0; border-radius: 10px;" 
+          allowfullscreen 
+          loading="lazy"
+          aria-label="Peta lokasi acara">
+        </iframe>
+      </div>
+
+      <button class="whatsapp-btn" onclick="konfirmasi()">Konfirmasi via WhatsApp</button>
     </div>
-
-    <button onclick="konfirmasi()">Konfirmasi via WhatsApp</button>
   </div>
+
+  <!-- Tombol kontrol musik untuk mobile -->
+  <button id="musicToggle" class="music-control" aria-label="Putar musik">
+    <span class="music-icon">🎵</span>
+  </button>
 
   <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
-
